@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Test</title>
+    <link  href="http://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+           th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+           rel="stylesheet" media="screen"
+    />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.4.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"
+    ></script>
+    <link href="../static/spring-core.css"
+          th:href="@{/spring-core.css}" rel="stylesheet" media="screen" />
+</head>
+<body>
+<div class="container" >
+<h3  th:text = "${language.name}"></h3>
+<img th:src="@{'/logos/'+${language.name}+'.png'}" width="100px"> <br>
+Year: <p th:text = "${language.year}"></p>
+Paradigm list: <ul th:each="par : ${language.paradigmSet}">
+    <li th:text="${par.name}"></li>
+</ul>
+</div>
+</body>
+</html>

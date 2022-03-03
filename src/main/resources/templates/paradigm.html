@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Test</title>
+    <link  href="http://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+           th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+           rel="stylesheet" media="screen"
+    />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.4.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"
+    ></script>
+    <link href="../static/spring-core.css"
+          th:href="@{/spring-core.css}" rel="stylesheet" media="screen" />
+</head>
+<body>
+<div class="container">
+    <h2>Paradigm</h2>
+    <h3>Name:</h3>
+    <p th:text="${paradigm.name}"></p>
+    <h3>Languages with this paradigm:</h3>
+    <div th:each="lang: ${paradigm.languageSet}">
+        <a th:href="${'/lang/'+lang.id}" th:text="${lang.name}"></a>
+    </div>
+</div>
+</body>
+</html>

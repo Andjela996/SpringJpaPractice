@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Test</title>
+    <link  href="http://cdn.jsdelivr.net/webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+           th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+           rel="stylesheet" media="screen"
+    />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.4.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"
+    ></script>
+    <link href="../static/spring-core.css"
+          th:href="@{/spring-core.css}" rel="stylesheet" media="screen" />
+</head>
+<body>
+<div class="container">
+<div th:if="${not #lists.isEmpty(paradigms)}">
+    <h2Paradigm list</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>View details</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="paradigm : ${paradigms}">
+            <td th:text="${paradigm.name}"></td>
+            <td><a th:href="${'/paradigm/'+paradigm.id}" >View</a></td>
+            <td><a th:href="${'/editpar/'+paradigm.id}">Edit</a></td>
+            <td><a th:href="${'/deletepar/'+paradigm.id}">Delete</a></td>
+        </tr>
+    </table>
+</div>
+    <a th:href="${'/newparrequest'}" >Add a new paradigm</a><br>
+    <a th:href="${'/index'}" >Site map</a><br>
+</div>
+</body>
+</html>
